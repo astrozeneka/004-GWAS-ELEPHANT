@@ -37,11 +37,11 @@ done < by_sex/males.txt
 
 genome_females=()
 while IFS= read -r genome; do
-    genome_females+=("$genome")
+    genome_females+=("${MAP_DIRECTORY}/${genome}_q20_sorted.bam")
 done < by_sex/females.txt
 
 if $male; then
-    echo samtools mpileup -uf "${FASTA_DIRECTORY}/${FASTA_FILE}" "${genome_males[*]}_q20_sorted.bam" | bcftools call -mv > "${VCF_DIRECTORY}/male.vcf"
+    echo samtools mpileup -uf "${FASTA_DIRECTORY}/${FASTA_FILE}" "${genome_males[*]}" | bcftools call -mv > "${VCF_DIRECTORY}/male.vcf"
 elif $female; then
-    echo samtools mpileup -uf "${FASTA_DIRECTORY}/${FASTA_FILE}" "${genome_females[*]}_q20_sorted.bam" | bcftools call -mv> "${VCF_DIRECTORY}/female.vcf"
+    echo samtools mpileup -uf "${FASTA_DIRECTORY}/${FASTA_FILE}" "${genome_females[*]}" | bcftools call -mv> "${VCF_DIRECTORY}/female.vcf"
 fi
