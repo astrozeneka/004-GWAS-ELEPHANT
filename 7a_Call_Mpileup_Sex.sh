@@ -7,7 +7,7 @@
 
 module purge
 module load SAMtools/1.9-intel-2019b
-
+module load BCFtools/1.10.2-intel-2019b
 
 # Argument parsing
 female=false
@@ -32,7 +32,7 @@ source ./variables.txt
 
 genome_males=()
 while IFS= read -r genome; do
-    genome_males+=("$genome")
+    genome_males+=("${genome}_q20_sorted.bam")
 done < by_sex/males.txt
 
 genome_females=()
@@ -40,8 +40,14 @@ while IFS= read -r genome; do
     genome_females+=("${MAP_DIRECTORY}/${genome}_q20_sorted.bam")
 done < by_sex/females.txt
 
+echo $male
+echo $female
+
+cwd=$(pwd)
+cd $MAP_DIRECTORY
 if $male; then
-    echo samtools mpileup -uf "${FASTA_DIRECTORY}/${FASTA_FILE}" "${genome_males[*]}" | bcftools call -mv > "${VCF_DIRECTORY}/male.vcf"
+    samtools mpileup -f "${FASTA_DIRECTORY}/${FASTA_FILE}" "${genome_males[@]}" > "${VCF_DIRECTORY}/male.pileup"
 elif $female; then
-    echo samtools mpileup -uf "${FASTA_DIRECTORY}/${FASTA_FILE}" "${genome_females[*]}" | bcftools call -mv> "${VCF_DIRECTORY}/female.vcf"
+    samtools mpileup -f "${FASTA_DIRECTORY}/${FASTA_FILE}" "${genome_females[@]}" > "${VCF_DIRECTORY}/female.pileup"
 fi
+cd $cwd
