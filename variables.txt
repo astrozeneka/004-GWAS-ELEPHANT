@@ -2,3 +2,4 @@ FASTA_DIRECTORY="/tarafs/data/home/hrasoara/gwas-ema"
 FASTA_FILE="GCA_024166365.1_mEleMax1_primary_haplotype_genomic.fna"
 
 MAP_DIRECTORY="/tarafs/data/project/proj5034-AGBKU/map_bwa_ema_Ryan/sorted_final_bam"
+VCF_DIRECTORY="/tarafs/data/project/proj5034-AGBKU/map_bwa_ema_Ryan/vcf_results"
