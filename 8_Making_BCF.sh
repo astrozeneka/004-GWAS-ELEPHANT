@@ -7,7 +7,12 @@
 
 module purge
 module load BCFtools/1.10.2-intel-2019b
+module load SAMtools/1.9-intel-2019b
 
+
+source ./variables.txt
 # In this script, I focus only on male secific loci
 group=male
-echo "${VCF_DIRECTORY}/${group}.pileup" "|" bcftools call -mv -Ob -o "${VCF_DIRECTORY}/${group}.bcf"
+# cat "${VCF_DIRECTORY}/${group}.pileup" | bcftools call -mv -Ob -o "${VCF_DIRECTORY}/${group}.bcf"
+bcftools mpileup -Ou -f "${FASTA_DIRECTORY}/${FASTA_FILE}" "${VCF_DIRECTORY}/${group}.pileup" > "${VCF_DIRECTORY}/${group}.bcf"
+# cat "${VCF_DIRECTORY}/${group}.pileup" | sam2vcf.pl -r "${FASTA_DIRECTORY}/${FASTA_FILE}" > "${VCF_DIRECTORY}/${group}.vcf"
