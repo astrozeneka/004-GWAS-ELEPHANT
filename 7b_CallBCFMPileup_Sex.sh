@@ -39,8 +39,8 @@ cwd=$(pwd)
 cd $MAP_DIRECTORY
 
 if $male; then
-    echo bcftools mpileup -Ou -f "${FASTA_DIRECTORY}/${FASTA_FILE}" ${genome_males[@]} '|' bcftools call -Ou -mv '>' "${VCF_DIRECTORY}/male.vcf"
-if $female; then
+    bcftools mpileup -Ou --threads 96 -f "${FASTA_DIRECTORY}/${FASTA_FILE}" ${genome_males[@]} | bcftools call -Ou -mv > "${VCF_DIRECTORY}/male.vcf"
+elif $female; then
     echo "Not yet implemented"
 fi
 cd $cwd
