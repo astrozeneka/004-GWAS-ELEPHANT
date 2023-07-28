@@ -18,5 +18,5 @@ export ROH_RESULT_DIRECTORY="/tarafs/data/home/hrasoara/proj5034-AGBKU/map_bwa_e
 
 plink --thread 32 --allow-no-sex --allow-extra-chr \
   --bfile "${PLINK_RESULT_DIRECTORY}/snp-tusk" \
-  --homozyg-het 0.8 --out "${ROH_RESULT_DIRECTORY}"
+  --homozyg --out "${ROH_RESULT_DIRECTORY}"
 echo "Done"
