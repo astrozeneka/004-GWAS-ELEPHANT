@@ -16,7 +16,7 @@ export POPULATION_RESULT_DIRECTORY="/tarafs/data/home/hrasoara/proj5034-AGBKU/ma
 export PLINK_RESULT_DIRECTORY="/tarafs/data/home/hrasoara/proj5034-AGBKU/map_bwa_ema_Ryan/result_plink_tusk_2"
 export ROH_RESULT_DIRECTORY="/tarafs/data/home/hrasoara/proj5034-AGBKU/map_bwa_ema_Ryan/result_plink_tusk_2/roh"
 
-plink --thread 32 --allow-no-sex --allow-extra-chr \
+plink --threads 32 --allow-no-sex --allow-extra-chr \
   --bfile "${PLINK_RESULT_DIRECTORY}/snp-tusk" \
   --homozyg --out "${ROH_RESULT_DIRECTORY}"
 echo "Done"
