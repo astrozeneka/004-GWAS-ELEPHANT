@@ -11,7 +11,7 @@ conda activate gemma
 
 source variables.txt
 export PLINK_RESULT_DIRECTORY="/tarafs/data/home/hrasoara/proj5034-AGBKU/map_bwa_ema_Ryan/result_plink_tusk_2"
-export GEMMA_OUTPUT_DIRECTORY="/tarafs/data/home/hrasoara/proj5034-AGBKU/map_bwa_ema_Ryan/gemma_tusk"
+export GEMMA_OUTPUT_DIRECTORY="/tarafs/data/home/hrasoara/proj5034-AGBKU/map_bwa_ema_Ryan/gemma_tusk/tusk"
 export PHENO_FILE="/tarafs/data/home/hrasoara/proj5034-AGBKU/map_bwa_ema_Ryan/gemma_tusk/pheno.txt"
 
 #1
