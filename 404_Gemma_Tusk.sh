@@ -28,3 +28,5 @@ rm -R output
 gemma -bfile "${PLINK_RESULT_DIRECTORY}/snp-tusk" \
 -k "${GEMMA_OUTPUT_DIRECTORY}/gemma_tusk.cXX.txt" \
 -lmm 1 -o gemma_lmm1
+rm output/* "${GEMMA_OUTPUT_DIRECTORY}/"
+rm -R output
