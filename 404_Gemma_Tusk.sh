@@ -17,7 +17,8 @@ export PHENO_FILE="/tarafs/data/home/hrasoara/proj5034-AGBKU/map_bwa_ema_Ryan/ge
 #1
 gemma -bfile "${PLINK_RESULT_DIRECTORY}/snp-tusk" \
 -gk -p "${PHENO_FILE}" \
--o "${GEMMA_OUTPUT_DIRECTORY}"
+-o "gemma_tusk"
+
 
 #2
 #gemma -bfile /tarafs/data/project/proj5034-AGBKU/map_bwa_ema_Ryan/plink_ema_hair/snp.hair -k gemma_kinship.cXX.txt -lmm 1 -o gemma_lmm1
