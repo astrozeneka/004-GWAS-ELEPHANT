@@ -25,4 +25,6 @@ rm -R output
 #mv -R "gemma_tusk" "${GEMMA_OUTPUT_DIRECTORY}"
 
 #2
-#gemma -bfile /tarafs/data/project/proj5034-AGBKU/map_bwa_ema_Ryan/plink_ema_hair/snp.hair -k gemma_kinship.cXX.txt -lmm 1 -o gemma_lmm1
+gemma -bfile "${PLINK_RESULT_DIRECTORY}/snp-tusk" \
+-k "${GEMMA_OUTPUT_DIRECTORY}/gemma_tusk.cXX.txt" \
+-lmm 1 -o gemma_lmm1
