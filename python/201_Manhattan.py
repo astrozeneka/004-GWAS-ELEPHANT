@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 
-fisher_path = "../data/fisher/fisher-tusk.assoc.fisher"
+fisher_path = "../data/plink/200/fisher.assoc.fisher"
 if __name__ == '__main__':
     chromosome_json = "../data/fisher/chromosomes.json"
     if not os.path.exists(chromosome_json):
@@ -65,6 +65,6 @@ if __name__ == '__main__':
         offset += maximum
         plt.scatter(X, Y, s=0.5)
     plt.axhline(y=bonferroni, color='red', linewidth=0.3)
-    plt.savefig(f"../data/fisher-manhattan/tusk.png")
+    plt.savefig(f"../data/plink/200/tusk.png")
     print("Done")
     print()

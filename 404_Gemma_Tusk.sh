@@ -19,14 +19,11 @@ gemma -bfile "${PLINK_RESULT_DIRECTORY}/snp-tusk" \
 -gk -p "${PHENO_FILE}" \
 -o "gemma_tusk"
 mv output/* "${GEMMA_OUTPUT_DIRECTORY}/"
-rm -R output
-
-#rm -R "${GEMMA_OUTPUT_DIRECTORY}"
-#mv -R "gemma_tusk" "${GEMMA_OUTPUT_DIRECTORY}"
+rm -r output
 
 #2
 gemma -bfile "${PLINK_RESULT_DIRECTORY}/snp-tusk" \
 -k "${GEMMA_OUTPUT_DIRECTORY}/gemma_tusk.cXX.txt" \
--lmm 1 -o gemma_lmm1
+-lmm 1 -o gemma_lmm1 -miss 1
 rm output/* "${GEMMA_OUTPUT_DIRECTORY}/"
-rm -R output
+rm -r output

@@ -9,8 +9,9 @@ if __name__ == '__main__':
     plt.ylabel("-log10(p-value)")
 
     # Calculate the Benferroni value
-    snp_len = open("../data/fisher.assoc.fisher").read().count("\n") -2
+    snp_len = open("../data/fisher-old.assoc.fisher").read().count("\n") -2
     bonferroni = -1 * np.log10(0.05 / snp_len)
+    potential_bonferroni = -1 * np.log10(1 / snp_len)
 
     offset = 0
     for i, chromosome in enumerate(chromosomes):
@@ -36,4 +37,5 @@ if __name__ == '__main__':
         offset += maximum
         plt.scatter(X, Y, s=3)
     plt.axhline(y=bonferroni, color='red', linewidth=0.3)
+    plt.axhline(y=potential_bonferroni, color='blue', linewidth=0.3)
     plt.savefig(f"../figs-plink/Manhattan-complete-{i}.png")
